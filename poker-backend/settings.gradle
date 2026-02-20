@@ -1,0 +1,9 @@
+rootProject.name = 'poker-backend'
+
+include 'poker-common'
+include 'poker-gateway'
+include 'poker-user'
+include 'poker-room'
+include 'poker-game'
+include 'poker-match'
+include 'poker-admin'

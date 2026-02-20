@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: poker-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_ADDR:127.0.0.1:8848}
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://poker-user
+          predicates:
+            - Path=/api/auth/**, /api/user/**, /api/wallet/**
+
+        - id: room-service
+          uri: lb://poker-room
+          predicates:
+            - Path=/api/room/**, /api/lobby/**
+
+        - id: game-service
+          uri: lb://poker-game
+          predicates:
+            - Path=/api/game/**, /ws/**
+
+        - id: match-service
+          uri: lb://poker-match
+          predicates:
+            - Path=/api/match/**
+
+        - id: admin-service
+          uri: lb://poker-admin
+          predicates:
+            - Path=/api/admin/**

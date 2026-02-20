@@ -1,0 +1,7 @@
+# Data directories (created by Docker)
+mysql_data/
+redis_data/
+
+# Environment files
+.env
+.env.local

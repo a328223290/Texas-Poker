@@ -1,0 +1,168 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(180deg, #0d1b2a, #1b2838);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.btn-leave {
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.game-info {
+  display: flex;
+  gap: 24px;
+  color: #ccc;
+}
+
+.pot-info {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+/* 游戏桌面 */
+.poker-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 公共牌 */
+.community-cards {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.card {
+  width: 60px;
+  height: 84px;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-empty {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.suit-hearts, .suit-diamonds {
+  color: #e74c3c;
+}
+
+.suit-spades, .suit-clubs {
+  color: #2c3e50;
+}
+
+/* 玩家座位 */
+.player-seats {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.player-seat {
+  position: absolute;
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  min-width: 100px;
+}
+
+.player-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.player-chips {
+  font-size: 12px;
+  color: #ffd700;
+}
+
+.player-bet {
+  font-size: 11px;
+  color: #4caf50;
+  margin-top: 2px;
+}
+
+/* 座位位置 */
+.seat-0 { top: 70%; left: 50%; transform: translateX(-50%); }
+.seat-1 { top: 60%; left: 15%; }
+.seat-2 { top: 30%; left: 10%; }
+.seat-3 { top: 10%; left: 30%; }
+.seat-4 { top: 10%; right: 30%; }
+.seat-5 { top: 30%; right: 10%; }
+.seat-6 { top: 60%; right: 15%; }
+
+/* 手牌 */
+.hole-cards {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.hole-card {
+  width: 70px;
+  height: 98px;
+  font-size: 20px;
+  border: 2px solid #ffd700;
+}
+
+/* 操作面板 */
+.action-panel {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.action-panel button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.action-panel button:hover {
+  opacity: 0.85;
+}
+
+.btn-fold { background: #e74c3c; color: white; }
+.btn-check { background: #3498db; color: white; }
+.btn-call { background: #2ecc71; color: white; }
+.btn-raise { background: #f39c12; color: white; }
+.btn-allin { background: #9b59b6; color: white; }

@@ -44,6 +44,145 @@ services:
       JVM_XMX: 256m
     networks:
       - poker-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8848/nacos/"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # ========== 业务服务层 ==========
+  
+  poker-gateway:
+    build:
+      context: ../poker-backend
+      dockerfile: poker-gateway/Dockerfile
+    container_name: poker-gateway
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      NACOS_ADDR: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      REDIS_HOST: redis
+    depends_on:
+      nacos:
+        condition: service_healthy
+      mysql:
+        condition: service_started
+    networks:
+      - poker-network
+
+  poker-user:
+    build:
+      context: ../poker-backend
+      dockerfile: poker-user/Dockerfile
+    container_name: poker-user
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      NACOS_ADDR: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      REDIS_HOST: redis
+    depends_on:
+      nacos:
+        condition: service_healthy
+      mysql:
+        condition: service_started
+    networks:
+      - poker-network
+
+  poker-game:
+    build:
+      context: ../poker-backend
+      dockerfile: poker-game/Dockerfile
+    container_name: poker-game
+    restart: always
+    ports:
+      - "8082:8082"
+    environment:
+      NACOS_ADDR: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      REDIS_HOST: redis
+    depends_on:
+      nacos:
+        condition: service_healthy
+      mysql:
+        condition: service_started
+    networks:
+      - poker-network
+
+  poker-room:
+    build:
+      context: ../poker-backend
+      dockerfile: poker-room/Dockerfile
+    container_name: poker-room
+    restart: always
+    ports:
+      - "8083:8083"
+    environment:
+      NACOS_ADDR: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      REDIS_HOST: redis
+    depends_on:
+      nacos:
+        condition: service_healthy
+      mysql:
+        condition: service_started
+    networks:
+      - poker-network
+
+  poker-match:
+    build:
+      context: ../poker-backend
+      dockerfile: poker-match/Dockerfile
+    container_name: poker-match
+    restart: always
+    ports:
+      - "8084:8084"
+    environment:
+      NACOS_ADDR: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      REDIS_HOST: redis
+    depends_on:
+      nacos:
+        condition: service_healthy
+      mysql:
+        condition: service_started
+    networks:
+      - poker-network
+
+  poker-admin:
+    build:
+      context: ../poker-backend
+      dockerfile: poker-admin/Dockerfile
+    container_name: poker-admin
+    restart: always
+    ports:
+      - "8085:8085"
+    environment:
+      NACOS_ADDR: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      REDIS_HOST: redis
+    depends_on:
+      nacos:
+        condition: service_healthy
+      mysql:
+        condition: service_started
+    networks:
+      - poker-network
 
 volumes:
   mysql_data:

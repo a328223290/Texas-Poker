@@ -7,6 +7,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.5'
     implementation 'com.mysql:mysql-connector-j'
 }

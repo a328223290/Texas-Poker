@@ -1,5 +1,9 @@
+plugins {
+    id 'java-library'
+}
+
 dependencies {
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.5'
-    implementation 'com.auth0:java-jwt:4.4.0'
-    implementation 'cn.hutool:hutool-all:5.8.25'
+    api 'com.baomidou:mybatis-plus-boot-starter:3.5.7'
+    api 'com.auth0:java-jwt:4.4.0'
+    api 'cn.hutool:hutool-all:5.8.25'
 }

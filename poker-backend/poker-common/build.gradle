@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    api 'com.baomidou:mybatis-plus-boot-starter:3.5.7'
+    api 'com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7'
     api 'com.auth0:java-jwt:4.4.0'
     api 'cn.hutool:hutool-all:5.8.25'
 }

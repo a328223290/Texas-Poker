@@ -18,23 +18,33 @@ spring:
           uri: lb://poker-user
           predicates:
             - Path=/api/auth/**, /api/user/**, /api/wallet/**
+          filters:
+            - StripPrefix=0
 
         - id: room-service
           uri: lb://poker-room
           predicates:
             - Path=/api/room/**, /api/lobby/**
+          filters:
+            - StripPrefix=0
 
         - id: game-service
           uri: lb://poker-game
           predicates:
             - Path=/api/game/**, /ws/**
+          filters:
+            - StripPrefix=0
 
         - id: match-service
           uri: lb://poker-match
           predicates:
             - Path=/api/match/**
+          filters:
+            - StripPrefix=0
 
         - id: admin-service
           uri: lb://poker-admin
           predicates:
             - Path=/api/admin/**
+          filters:
+            - StripPrefix=0

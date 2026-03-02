@@ -3,6 +3,10 @@ plugins {
 }
 
 dependencies {
+    // Spring Boot Web (for exception handling, but not as a service)
+    api 'org.springframework.boot:spring-boot-starter-web'
+    
+    // Existing dependencies
     api 'com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7'
     api 'com.auth0:java-jwt:4.4.0'
     api 'cn.hutool:hutool-all:5.8.25'
